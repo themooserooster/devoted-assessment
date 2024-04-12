@@ -1,20 +1,57 @@
-﻿internal class Program
+﻿namespace DevotedAssessment.Console
 {
-    private static void Main(string[] args)
+    using System;
+
+    internal class Program
     {
-        Console.WriteLine("Hello, World!");
 
-        var running = true;
-
-        while (running)
+        private static void Main(string[] args)
         {
+            var db = new InMemDatabase();
 
-            var echo = Console.ReadLine();
+            var commands = new Dictionary<string, Action<string[]>>() {
 
-            if (echo.Equals("exit", StringComparison.InvariantCultureIgnoreCase)) break;
+                { "SET", (dbArgs) => {
+                    db.Set(dbArgs[0], dbArgs[1]);
+                } },
+                { "GET", (dbArgs) => {
+                    Console.WriteLine(db.Get(dbArgs[0]));
+                } },
+                { "DELETE", (dbArgs) => {
+                    db.Delete(dbArgs[0]);
+                } },
+                { "COUNT", (dbArgs) => {
+                    Console.WriteLine(db.Count(dbArgs[0]));
+                } },
+                { "BEGIN", (dbArgs) => {
+                    Console.WriteLine("begin");
+                } },
+                { "COMMIT", (dbArgs) => {
+                    Console.WriteLine("commit");
+                } },
+                { "ROLLBACK", (dbArgs) => {
+                    Console.WriteLine("rollback");
+                } }
+            };
 
-            Console.WriteLine(echo);
+            Console.WriteLine("In memory database ready...");
 
+            while (true)
+            {
+                string? cmd = Console.ReadLine()?.Trim();
+                
+                if (string.IsNullOrEmpty(cmd)) break;
+                if (cmd == "END") break;
+
+                var cmdArgs = cmd.Split(' ');
+
+                if (commands.ContainsKey(cmdArgs[0].ToUpperInvariant())) {
+                    commands[cmdArgs[0]](cmdArgs.Skip(1).ToArray());
+                }
+            }
         }
     }
+
+
 }
+
