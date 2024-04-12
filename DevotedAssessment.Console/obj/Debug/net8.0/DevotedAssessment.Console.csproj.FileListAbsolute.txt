@@ -1,0 +1,15 @@
+/home/stevo/code/devoted-assessment/DevotedAssessment.Console/bin/Debug/net8.0/DevotedAssessment.Console
+/home/stevo/code/devoted-assessment/DevotedAssessment.Console/bin/Debug/net8.0/DevotedAssessment.Console.deps.json
+/home/stevo/code/devoted-assessment/DevotedAssessment.Console/bin/Debug/net8.0/DevotedAssessment.Console.runtimeconfig.json
+/home/stevo/code/devoted-assessment/DevotedAssessment.Console/bin/Debug/net8.0/DevotedAssessment.Console.dll
+/home/stevo/code/devoted-assessment/DevotedAssessment.Console/bin/Debug/net8.0/DevotedAssessment.Console.pdb
+/home/stevo/code/devoted-assessment/DevotedAssessment.Console/obj/Debug/net8.0/DevotedAssessment.Console.GeneratedMSBuildEditorConfig.editorconfig
+/home/stevo/code/devoted-assessment/DevotedAssessment.Console/obj/Debug/net8.0/DevotedAssessment.Console.AssemblyInfoInputs.cache
+/home/stevo/code/devoted-assessment/DevotedAssessment.Console/obj/Debug/net8.0/DevotedAssessment.Console.AssemblyInfo.cs
+/home/stevo/code/devoted-assessment/DevotedAssessment.Console/obj/Debug/net8.0/DevotedAssessment.Console.csproj.CoreCompileInputs.cache
+/home/stevo/code/devoted-assessment/DevotedAssessment.Console/obj/Debug/net8.0/DevotedAssessment.Console.sourcelink.json
+/home/stevo/code/devoted-assessment/DevotedAssessment.Console/obj/Debug/net8.0/DevotedAssessment.Console.dll
+/home/stevo/code/devoted-assessment/DevotedAssessment.Console/obj/Debug/net8.0/refint/DevotedAssessment.Console.dll
+/home/stevo/code/devoted-assessment/DevotedAssessment.Console/obj/Debug/net8.0/DevotedAssessment.Console.pdb
+/home/stevo/code/devoted-assessment/DevotedAssessment.Console/obj/Debug/net8.0/DevotedAssessment.Console.genruntimeconfig.cache
+/home/stevo/code/devoted-assessment/DevotedAssessment.Console/obj/Debug/net8.0/ref/DevotedAssessment.Console.dll
