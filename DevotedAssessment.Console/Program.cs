@@ -24,13 +24,13 @@
                     Console.WriteLine(db.Count(dbArgs[0]));
                 } },
                 { "BEGIN", (dbArgs) => {
-                    Console.WriteLine("begin");
+                    db.BeginTransaction();
                 } },
                 { "COMMIT", (dbArgs) => {
-                    Console.WriteLine("commit");
+                    db.CommitAllTransactions();
                 } },
                 { "ROLLBACK", (dbArgs) => {
-                    Console.WriteLine("rollback");
+                    db.RollbackTransaction();
                 } }
             };
 
