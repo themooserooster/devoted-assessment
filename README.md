@@ -13,13 +13,15 @@ From the root of this repo, run the following:
         dotnet run
     ```
 
+Program is ready after the `In memory database ready...` prompt apprears.
+
 ## Tests
 
 ### Test 1
 
-Input:
+#### Input
 
-```plaintext
+```sql
 GET a
 SET a foo
 SET b foo
@@ -34,9 +36,9 @@ GET B
 END
 ```
 
-Expected Output:
+#### Expected Output
 
-```plaintext
+```sql
 >> GET a
 NULL
 >> SET a foo
@@ -60,8 +62,9 @@ NULL
 
 ### Test 2
 
-Input:
-```plaintext
+#### Input
+
+```sql
 SET a foo
 SET a foo
 COUNT foo
@@ -72,9 +75,9 @@ COUNT foo
 END
 ```
 
-Expected Output:
+#### Expected Output
 
-```plaintext
+```sql
 >> SET a foo
 >> SET a foo
 >> COUNT foo
@@ -92,8 +95,9 @@ NULL
 
 ### Test 3
 
-Input:
-```plaintext
+#### Input
+
+```sql
 BEGIN
 SET a foo
 GET a
@@ -108,9 +112,9 @@ GET a
 END
 ```
 
-Expected Output:
+#### Expected Output
 
-```plaintext
+```sql
 >> BEGIN
 >> SET a foo
 >> GET a
@@ -131,8 +135,9 @@ NULL
 
 ### Test 4
 
-Input:
-```plaintext
+#### Input
+
+```sql
 SET a foo
 SET b baz
 BEGIN
@@ -153,9 +158,9 @@ GET b
 END
 ```
 
-Expected Output:
+#### Expected Output
 
-```plaintext
+```sql
 >> SET a foo
 >> SET b baz
 >> BEGIN

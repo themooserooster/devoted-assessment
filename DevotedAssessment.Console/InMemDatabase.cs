@@ -10,9 +10,11 @@ namespace DevotedAssessment.Console {
             public string? NewValue { get; set; }
         }
 
+        internal class Transaction : List<TransactionEntry> {}
+
         Dictionary<string, string> db = new Dictionary<string, string>();
         Dictionary<string, int> histogram = new Dictionary<string, int>();
-        List<List<TransactionEntry>> transactionLogs = new List<List<TransactionEntry>>();
+        List<Transaction> transactions = new List<Transaction>();
 
         public void Set(string key, string value) {
             if (db.ContainsKey(key)) DecrementHistogram(db[key]);
@@ -35,7 +37,7 @@ namespace DevotedAssessment.Console {
 
             var oldValue = db[key];
             DecrementHistogram(oldValue);
-            LogTransaction(key, null, oldValue);
+            LogTransaction(key, oldValue, null);
             
             db.Remove(key);
         }
@@ -47,20 +49,20 @@ namespace DevotedAssessment.Console {
         }
 
         public void BeginTransaction() {
-            transactionLogs.Add(new List<TransactionEntry>());
+            transactions.Add(new Transaction());
         }
 
         public void CommitAllTransactions() {
-            transactionLogs.Clear();
+            transactions.Clear();
         }
 
         public void RollbackTransaction() {
-            if (transactionLogs.Count == 0) return;
+            if (transactions.Count == 0) return;
 
-            var log = transactionLogs.Last();
+            var trx = transactions.Last();
 
-            for (var i = log.Count-1; i >= 0; i--) {
-                var entry = log[i];
+            for (var i = trx.Count-1; i >= 0; i--) {
+                var entry = trx[i];
                 
                 IncrementHistogram(entry.OldValue);
                 DecrementHistogram(entry.NewValue);
@@ -70,13 +72,13 @@ namespace DevotedAssessment.Console {
 
             }
 
-            transactionLogs.RemoveAt(transactionLogs.Count - 1);
+            transactions.RemoveAt(transactions.Count - 1);
         }
 
         protected void LogTransaction(string key, string? oldValue, string? newValue) {
-            if (transactionLogs.Count == 0) return;
+            if (transactions.Count == 0) return;
 
-            transactionLogs.Last().Add(new TransactionEntry() {
+            transactions.Last().Add(new TransactionEntry() {
                 Key = key,
                 OldValue = oldValue,
                 NewValue = newValue
